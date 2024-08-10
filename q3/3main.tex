@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+
+\title{Optimizing Information Propagation in a Social Media Influencer Network}
+\author{Hetvi Bagdai}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Statement of Problem}
+\textbf{Problem Description:} As a data scientist working for a social media platform, your objective is to enhance content visibility, engagement, and user satisfaction by understanding and optimizing how information propagates through the network of influencers on the platform. The dataset comprises a modified impression network, where nodes represent influencers, and edges depict interactions or collaborations between influencers.
+
+\textbf{Key Objectives:}
+\begin{enumerate}
+    \item Identify Key Influencers: Analyze the modified impression network to pinpoint influencers with high betweenness centrality. High betweenness centrality suggests these influencers play crucial roles in facilitating the flow of information between different clusters or communities within the network. Identifying these key influencers will aid in optimizing content propagation strategies to maximize reach and engagement across the platform.
+\end{enumerate}
+
+\section{Code Explanation}
+Detailed explanation of the provided code snippet in the context of optimizing information propagation in a social media influencer network:
+
+\subsection{Data Import and Preparation}
+\begin{itemize}
+    \item The code begins by importing the necessary libraries, pandas for data manipulation and NetworkX for graph analysis.
+  
+\end{itemize}
+
+\subsection{Graph Creation}
+\begin{itemize}
+    \item A directed graph $G$ is created using NetworkX to represent the modified impression network.
+    \item The code iterates through each row of the DataFrame, where each row represents an influencer and their interactions or collaborations with other influencers.
+    \item It assumes the first column of the DataFrame represents the source influencer, while the subsequent columns represent the target influencers that the source influencer interacts with.
+    \item For each row, the source influencer is added to the graph, and directed edges are created from the source influencer to each of its target influencers.
+\end{itemize}
+
+\subsection{Betweenness Centrality Calculation}
+\begin{itemize}
+    \item The code calculates the betweenness centrality for each node (influencer) in the graph using the \texttt{nx.betweenness\_centrality()} function from NetworkX.
+    \item Betweenness centrality measures the importance of a node in facilitating the flow of information between other nodes in the network. Nodes with high betweenness centrality act as key intermediaries in information propagation.
+\end{itemize}
+
+\subsection{Sorting Nodes by Betweenness Centrality}
+\begin{itemize}
+    \item The nodes (influencers) are sorted based on their betweenness centrality scores in descending order using Python's \texttt{sorted()} function with a lambda function as the key.
+    \item This creates a list of tuples where each tuple contains the influencer's ID and their corresponding betweenness centrality score.
+\end{itemize}
+
+\subsection{Print Top 5 Key Intermediaries}
+\begin{itemize}
+    \item The code prints the top 5 influencers with the highest betweenness centrality scores, indicating their significance as key intermediaries in facilitating information propagation within the network.
+\end{itemize}
+
+In the context of optimizing information propagation in a social media influencer network, this code snippet serves as a foundational step in identifying influential nodes (influencers) that play pivotal roles in spreading content across the network. By calculating betweenness centrality and identifying key intermediaries, the platform can strategically leverage these influencers to enhance content visibility, engagement, and user satisfaction.
+
+\section{What are communities?}
+Clusters or communities within a network are groups of nodes that are more densely connected to each other internally than they are to nodes outside the group. These groups exhibit a higher degree of internal cohesion and connectivity, forming cohesive substructures within the larger network.
+
+\section{Betweenness Centrality Explanation}
+Betweenness centrality is a key concept in network analysis that measures the importance of a node in facilitating communication or interaction between other nodes in a network. It quantifies the extent to which a node lies on the shortest paths between pairs of nodes in the network.
+
+\begin{enumerate}
+    \item \textbf{Conceptual Framework:}
+    \begin{itemize}
+        \item In a network or graph, nodes represent entities (such as individuals, organizations, or concepts), and edges represent relationships or connections between these entities.
+        \item Betweenness centrality focuses on nodes' roles as intermediaries or bridges within the network, rather than their intrinsic properties or attributes.
+        \item The central idea is that nodes with high betweenness centrality are crucial for maintaining efficient communication or flow of information, resources, or influence between different parts of the network.
+    \end{itemize}
+    
+    \item \textbf{Mathematical Formulation:}
+    \begin{itemize}
+        \item Betweenness centrality for a node $v$ is calculated by considering all pairs of nodes $s$ and $t$ in the network and counting the number of shortest paths between $s$ and $t$ that pass through $v$.
+        \item Formally, the betweenness centrality $C_B(v)$ of a node $v$ is given by:
+        \[ C_B(v) = \sum_{s \neq v \neq t} \frac{\sigma_{st}(v)}{\sigma_{st}} \]
+        where:
+        \begin{itemize}
+            \item $\sigma_{st}$ is the total number of shortest paths from node $s$ to node $t$,
+            \item $\sigma_{st}(v)$ is the number of those shortest paths that pass through node $v$.
+        \end{itemize}
+    \end{itemize}
+    
+    \item \textbf{Algorithmic Calculation:}
+    \begin{itemize}
+        \item Calculating betweenness centrality involves computing shortest paths between all pairs of nodes in the network. The most common algorithm for this task is Floyd-Warshall or Dijkstra's algorithm, depending on the characteristics of the network (weighted or unweighted).
+        \item For each node $v$, the algorithm calculates the number of shortest paths that pass through $v$ while iterating over all pairs of nodes $s$ and $t$ in the network.
+    \end{itemize}
+    
+    \item \textbf{Interpretation:}
+    \begin{itemize}
+        \item A node with high betweenness centrality acts as a critical bridge or intermediary between different parts of the network.
+        \item It lies on many shortest paths between other nodes, allowing for efficient communication, transfer of information, or flow of resources.
+        \item Nodes with high betweenness centrality are often positioned in strategic locations within the network and can exert significant influence over network dynamics.
+    \end{itemize}
+\end{enumerate}
+
+\section{Conclusion}
+\textbf{} In summary, the code snippet and its accompanying explanation provide a solid foundation for optimizing information propagation in a social media influencer network. By identifying key influencers through betweenness centrality analysis, the platform can strategically enhance content visibility and engagement. This approach enables targeted content dissemination, fostering a more vibrant and engaging user experience. Ultimately, leveraging network analysis techniques empowers platforms to maximize user satisfaction and interaction, thereby creating a dynamic and thriving online community.
+
+\end{document}
