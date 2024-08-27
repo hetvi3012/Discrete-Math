@@ -1,4 +1,3 @@
-"""
 # Social Network Analysis and Link Prediction
 
 ## Overview
@@ -74,12 +73,3 @@ This project focuses on analyzing and optimizing a social network using algorith
    - `random_walk.py` for Random Walk with Teleportation.
    - `link_prediction.py` for predicting missing links.
    - `betweenness_centrality.py` for optimizing information propagation.
-
-## Conclusion
-
-This project demonstrates the application of graph theory and network analysis to social networks. By identifying key leaders, predicting missing links, and optimizing information propagation, the project provides valuable insights into the structure and dynamics of social networks.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-"""
